@@ -1,1 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Flores amarillas para ti 💛</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:Georgia, serif;
+
+    background:
+    radial-gradient(circle at 50% 20%, #473d19 0%, #1d1a0d 45%, #080805 100%);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+}
+
+/* ============================= */
+/* ESTRELLAS */
+/* ============================= */
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    background:#ffe87c;
+
+    border-radius:50%;
+
+    opacity:.6;
+
+    box-shadow:0 0 8px #ffe87c;
+
+    animation:brillo 2s infinite alternate;
+}
+
+@keyframes brillo{
+
+    from{
+        opacity:.2;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.6);
+    }
+
+}
+
+
+/* ============================= */
+/* CONTENIDO */
+/* ============================= */
+
+.contenedor{
+
+    position:relative;
+
+    z-index:10;
+
+    text-align:center;
+
+    width:100%;
+
+    padding:20px;
+}
+
+
+.titulo{
+
+    font-size:clamp(32px,7vw,65px);
+
+    font-weight:normal;
+
+    color:#fff6ba;
+
+    margin-bottom:12px;
+
+    text-shadow:
+    0 0 10px rgba(255,220,70,.5),
+    0 0 30px rgba(255,220,70,.25);
+
+    animation:aparecer 2s ease;
+}
+
+
+.subtitulo{
+
+    color:#f6e8a6;
+
+    font-size:17px;
+
+    margin-bottom:40px;
+
+    animation:aparecer 3s ease;
+}
+
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* ============================= */
+/* SOBRE */
+/* ============================= */
+
+.sobre-container{
+
+    width:300px;
+    height:200px;
+
+    margin:auto;
+
+    position:relative;
+
+    cursor:pointer;
+
+    animation:flotar 3s ease-in-out infinite;
+
+}
+
+
+@keyframes flotar{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+
+.sobre{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:#fff6c7;
+
+    border-radius:6px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.5),
+    0 0 35px rgba(255,225,80,.18);
+}
+
+
+/* PARTE SUPERIOR */
+
+.sobre::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    border-left:150px solid transparent;
+    border-right:150px solid transparent;
+
+    border-top:105px solid #f0dc79;
+
+    transform-origin:top;
+
+    z-index:4;
+}
+
+
+/* PARTE INFERIOR */
+
+.sobre::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    border-left:150px solid #ead57c;
+    border-right:150px solid #ead57c;
+
+    border-top:100px solid transparent;
+
+    z-index:3;
+}
+
+
+/* ============================= */
+/* CORAZÓN */
+/* ============================= */
+
+.corazon{
+
+    position:absolute;
+
+    z-index:7;
+
+    left:50%;
+    top:82px;
+
+    transform:translateX(-50%);
+
+    background:#e7b91d;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:26px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.3),
+    0 0 20px rgba(255,221,50,.4);
+
+}
+
+
+.texto-abrir{
+
+    margin-top:25px;
+
+    font-family:Arial,sans-serif;
+
+    color:#fff0a6;
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    animation:brilloTexto 1.8s infinite alternate;
+
+}
+
+
+@keyframes brilloTexto{
+
+    from{
+        opacity:.45;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+/* ============================= */
+/* CARTA */
+/* ============================= */
+
+.carta{
+
+    position:fixed;
+
+    z-index:50;
+
+    width:min(90%,450px);
+
+    min-height:420px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-40%)
+    scale(.7);
+
+    background:#fffdf1;
+
+    color:#5c5125;
+
+    border-radius:12px;
+
+    padding:45px 35px;
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,.6),
+    0 0 50px rgba(255,224,80,.2);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.8s ease;
+
+}
+
+
+.carta.activa{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+
+}
+
+
+.carta h2{
+
+    font-size:31px;
+
+    margin-bottom:25px;
+
+    color:#b78d00;
+
+    font-weight:normal;
+
+}
+
+
+.carta p{
+
+    line-height:1.9;
+
+    font-size:17px;
+
+    margin-bottom:15px;
+
+}
+
+
+.mensaje-principal{
+
+    font-size:25px !important;
+
+    font-weight:bold;
+
+    color:#c49500;
+
+    margin:25px 0 !important;
+
+}
+
+
+.firma{
+
+    margin-top:25px;
+
+    font-style:italic;
+
+    color:#8f7625;
+
+}
+
+
+.cerrar{
+
+    position:absolute;
+
+    right:15px;
+    top:12px;
+
+    border:none;
+
+    background:transparent;
+
+    font-size:28px;
+
+    color:#9d8638;
+
+    cursor:pointer;
+
+}
+
+
+/* ============================= */
+/* OVERLAY */
+/* ============================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(5,5,2,.78);
+
+    backdrop-filter:blur(7px);
+
+    z-index:40;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.5s;
+
+}
+
+
+.overlay.activo{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+/* ============================= */
+/* JARDÍN */
+/* ============================= */
+
+.flores{
+
+    position:fixed;
+
+    bottom:-20px;
+
+    left:0;
+
+    width:100%;
+
+    height:260px;
+
+    pointer-events:none;
+
+}
+
+
+/* FLOR */
+
+.flor{
+
+    position:absolute;
+
+    bottom:0;
+
+    transform-origin:bottom;
+
+    animation:
+    moverFlor 4s
+    ease-in-out
+    infinite alternate;
+
+}
+
+
+@keyframes moverFlor{
+
+    from{
+        transform:rotate(-5deg);
+    }
+
+    to{
+        transform:rotate(5deg);
+    }
+
+}
+
+
+/* TALLO */
+
+.tallo{
+
+    width:6px;
+
+    height:155px;
+
+    margin:auto;
+
+    border-radius:10px;
+
+    background:
+    linear-gradient(
+        #559447,
+        #17381d
+    );
+
+}
+
+
+/* CABEZA */
+
+.cabeza{
+
+    position:absolute;
+
+    top:-24px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:62px;
+
+    filter:
+    drop-shadow(
+        0 0 10px
+        rgba(255,210,30,.35)
+    );
+
+}
+
+
+/* POSICIONES */
+
+.flor:nth-child(1){
+    left:2%;
+    animation-delay:0s;
+}
+
+.flor:nth-child(2){
+    left:13%;
+    animation-delay:1s;
+}
+
+.flor:nth-child(3){
+    left:24%;
+    animation-delay:.4s;
+}
+
+.flor:nth-child(4){
+    right:24%;
+    animation-delay:1.4s;
+}
+
+.flor:nth-child(5){
+    right:13%;
+    animation-delay:.7s;
+}
+
+.flor:nth-child(6){
+    right:2%;
+    animation-delay:1.7s;
+}
+
+
+/* ============================= */
+/* PÉTALOS */
+/* ============================= */
+
+.petalo{
+
+    position:fixed;
+
+    top:-50px;
+
+    z-index:2;
+
+    pointer-events:none;
+
+    animation:
+    caer
+    linear
+    forwards;
+
+}
+
+
+@keyframes caer{
+
+    0%{
+
+        transform:
+        translateY(-50px)
+        translateX(0)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+        opacity:.9;
+    }
+
+    50%{
+
+        transform:
+        translateY(50vh)
+        translateX(40px)
+        rotate(250deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(110vh)
+        translateX(-30px)
+        rotate(520deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ============================= */
+/* CELULAR */
+/* ============================= */
+
+@media(max-width:600px){
+
+    .titulo{
+        font-size:38px;
+    }
+
+    .subtitulo{
+        font-size:15px;
+    }
+
+    .sobre-container{
+
+        width:260px;
+        height:175px;
+
+    }
+
+    .sobre::before{
+
+        border-left-width:130px;
+        border-right-width:130px;
+
+        border-top-width:90px;
+
+    }
+
+    .sobre::after{
+
+        border-left-width:130px;
+        border-right-width:130px;
+
+        border-top-width:88px;
+
+    }
+
+    .corazon{
+        top:70px;
+    }
+
+    .carta{
+
+        min-height:390px;
+
+        padding:
+        40px
+        25px;
+
+    }
+
+    .cabeza{
+        font-size:48px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ESTRELLAS -->
+
+<div
+class="stars"
+id="stars">
+</div>
+
+
+
+<!-- CONTENIDO -->
+
+<div class="contenedor">
+
+    <h1 class="titulo">
+        Tengo unas flores para ti 💛
+    </h1>
+
+    <p class="subtitulo">
+        No todo tiene que llegar el mismo día para ser especial...
+    </p>
+
+
+    <!-- SOBRE -->
+
+    <div
+    class="sobre-container"
+    onclick="abrirCarta()">
+
+        <div class="sobre"></div>
+
+        <div class="corazon">
+            💛
+        </div>
+
+    </div>
+
+
+    <div class="texto-abrir">
+        TOCA LA CARTITA
+    </div>
+
+</div>
+
+
+
+<!-- ======================= -->
+<!-- FLORES AMARILLAS -->
+<!-- ======================= -->
+
+<div class="flores">
+
+
+    <div class="flor">
+
+        <div class="cabeza">
+            🌻
+        </div>
+
+        <div class="tallo"></div>
+
+    </div>
+
+
+
+    <div class="flor">
+
+        <div class="cabeza">
+            🌼
+        </div>
+
+        <div class="tallo"></div>
+
+    </div>
+
+
+
+    <div class="flor">
+
+        <div class="cabeza">
+            🌻
+        </div>
+
+        <div class="tallo"></div>
+
+    </div>
+
+
+
+    <div class="flor">
+
+        <div class="cabeza">
+            🌼
+        </div>
+
+        <div class="tallo"></div>
+
+    </div>
+
+
+
+    <div class="flor">
+
+        <div class="cabeza">
+            🌻
+        </div>
+
+        <div class="tallo"></div>
+
+    </div>
+
+
+
+    <div class="flor">
+
+        <div class="cabeza">
+            🌼
+        </div>
+
+        <div class="tallo"></div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- FONDO CARTA -->
+
+<div
+class="overlay"
+id="overlay"
+onclick="cerrarCarta()">
+</div>
+
+
+
+<!-- ======================= -->
+<!-- CARTITA -->
+<!-- ======================= -->
+
+<div
+class="carta"
+id="carta">
+
+
+<button
+class="cerrar"
+onclick="cerrarCarta()">
+×
+</button>
+
+
+<h2>
+Para ti 💛
+</h2>
+
+
+<p>
+
+Quizá hoy solo sean unas flores
+en una pantalla, pero quería
+darte una pequeña sorpresa.
+
+</p>
+
+
+<p>
+
+Hay detalles que valen la pena
+esperar un poquito...
+
+</p>
+
+
+<p class="mensaje-principal">
+
+En estos días llega
+tu ramo de flores amarillas 💛🌻
+
+</p>
+
+
+<p>
+
+Espero que cuando llegue
+te saque una sonrisa
+y haga tu día un poquito
+más bonito.
+
+</p>
+
+
+<p class="firma">
+
+Con cariño 💛
+
+</p>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ========================== */
+/* ABRIR CARTA */
+/* ========================== */
+
+function abrirCarta(){
+
+    document
+    .getElementById("carta")
+    .classList
+    .add("activa");
+
+
+    document
+    .getElementById("overlay")
+    .classList
+    .add("activo");
+
+
+    explosionPetalos();
+
+}
+
+
+
+/* ========================== */
+/* CERRAR CARTA */
+/* ========================== */
+
+function cerrarCarta(){
+
+    document
+    .getElementById("carta")
+    .classList
+    .remove("activa");
+
+
+    document
+    .getElementById("overlay")
+    .classList
+    .remove("activo");
+
+}
+
+
+
+/* ========================== */
+/* CREAR ESTRELLAS */
+/* ========================== */
+
+const estrellas =
+document.getElementById("stars");
+
+
+for(let i=0;i<80;i++){
+
+    const estrella =
+    document.createElement("div");
+
+
+    estrella
+    .classList
+    .add("star");
+
+
+    estrella.style.left =
+    Math.random()*100+"%";
+
+
+    estrella.style.top =
+    Math.random()*100+"%";
+
+
+    estrella.style.animationDelay =
+    Math.random()*3+"s";
+
+
+    estrella.style.animationDuration =
+    (1.5+Math.random()*3)+"s";
+
+
+    estrellas.appendChild(estrella);
+
+}
+
+
+
+/* ========================== */
+/* PÉTALOS */
+/* ========================== */
+
+function crearPetalo(){
+
+    const petalo =
+    document.createElement("div");
+
+
+    petalo
+    .classList
+    .add("petalo");
+
+
+    const petalos = [
+        "🌼",
+        "💛",
+        "🌻"
+    ];
+
+
+    petalo.innerHTML =
+    petalos[
+        Math.floor(
+            Math.random()
+            *
+            petalos.length
+        )
+    ];
+
+
+    petalo.style.left =
+    Math.random()*100+"vw";
+
+
+    petalo.style.fontSize =
+    (
+        12+
+        Math.random()*18
+    )
+    +"px";
+
+
+    petalo.style.animationDuration =
+    (
+        6+
+        Math.random()*5
+    )
+    +"s";
+
+
+    document.body
+    .appendChild(petalo);
+
+
+    setTimeout(()=>{
+
+        petalo.remove();
+
+    },12000);
+
+}
+
+
+
+/* PÉTALOS CONSTANTES */
+
+setInterval(
+    crearPetalo,
+    850
+);
+
+
+
+/* ========================== */
+/* EXPLOSIÓN AL ABRIR */
+/* ========================== */
+
+function explosionPetalos(){
+
+    for(let i=0;i<30;i++){
+
+        setTimeout(()=>{
+
+            crearPetalo();
+
+        },i*60);
+
+    }
+
+}
+
+
+</script>
+
+
+</body>
+</html>
